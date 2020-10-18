@@ -27,33 +27,29 @@
     console.log(potentialChar)
 
 
-    // Playing with compiling a potential characters list
-    // console.log(potentialChar)
-    // var num1= lowerCaseChar[8]
-    // var num2= lowerCaseChar[5]
-    // console.log(num1);
-    // console.log(num2);
-    // console.log(num2 + num1);
-    // // potentialChar += num1 + num2
-    // potentialChar += upperCaseChar + lowerCaseChar 
-    // console.log(potentialChar)
-
     alert("Lets set up your password")
     var pw_length= "";
+    // var pw_length = prompt("How many characters should the password be? Select a number between 8 and 128")
+    console.log(pw_length, pw_lengthInput)
     // THIS IS THE VALIDATION SECTION THAT IS BROKEN
-    // while(pw_length == ""){
-    //     var pw_lengthInput = prompt("How many characters should the password be? Select a number between 8 and 128.")
-    //     console.log(pw_lengthInput)
-    //     if(pw_lengthInput >= 8 && pw_lengthInput <= 128){
-    //         pwlength = pw_lengthInput;
-    //         console.log(pw_length);
-    //     }
-    //     else{
-    //         alert(`I TOLD YOU TO SELECT A NUMBER BETWEEN 8 AND 128, AND YOU SAID "${pw_lengthInput}"! Please try again.`);
-    //     };
-    // };
-    var pw_length = prompt("How many characters should the password be? Select a number between 8 and 128")
-    console.log(pw_length)
+    while(pw_length == ""){
+        var pw_lengthInput = prompt("How many characters should the password be? Select a number between 8 and 128.")
+        console.log(pw_lengthInput)
+        // pw_length = pw_lengthInput
+        if(pw_lengthInput >= 8 && pw_lengthInput <= 128){
+            // pwlength = pw_lengthInput;
+            // console.log(pw_length);
+        }
+        else{
+            console.log(pw_length)
+            console.log(pw_lengthInput)
+            alert(`I SAID SELECT A NUMBER BETWEEN 8 AND 128, AND YOU SAID "${pw_lengthInput}"! Please try again.`);
+        };
+        continue;
+    };
+
+
+
 
     alert("Select your password character options")
     //Should we add upper case characters to the password?
