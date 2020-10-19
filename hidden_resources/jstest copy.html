@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js test copy</title>
+</head>
+<body>
+    
+    <script>
+    var potentialChar = ""
+    var upperCaseChar = 'ABCDEFGHIJKLMKNOPQRSTUVWXYZ';
+    var lowerCaseChar = 'abcdefghijklmnopqrstuvwxyz';
+    var digitChar = '0123456789'
+    var specialChar = '!@#$%&?~'
+    // create a password object
+    var password = {
+        pw_length: "x",
+        // Lets start out assuming we can apply all Characters
+        pw_upperCaseChar: true,
+        pw_lowerCaseChar: true,
+        pw_digitChar: true,
+        pw_specialChar :true,
+        pw_value: "",
+    }
+
+function generatePassword(){
+
+
+        alert("Select your password character options")
+        //Should we add upper case characters to the password?
+        var upperCaseConfirm = confirm("Do You want to include upper case letters")
+        console.log(upperCaseConfirm)
+        if (upperCaseConfirm ==true){
+            console.log(upperCaseConfirm)
+        }else{
+            password.pw_upperCaseChar = false;
+        }
+
+        // Should we add upper case characters to the available characters string?
+        console.log(password.pw_upperCaseChar)
+        if (password.pw_upperCaseChar){
+            potentialChar += upperCaseChar
+            }
+        console.log(potentialChar)
+
+        //Should we add lower case characters to the password?
+
+        var lowerCaseConfirm = confirm("Do You want to include lower case letters")
+        console.log(lowerCaseConfirm)
+        if (lowerCaseConfirm ==true){
+            console.log(lowerCaseConfirm)
+        }else{
+            password.pw_lowerCaseChar = false;
+        }
+
+        // Should we add lower case characters to the available characters string?
+        console.log(password.pw_lowerCaseChar)
+        if (password.pw_lowerCaseChar){
+            potentialChar += lowerCaseChar
+            }
+        console.log(potentialChar)
+
+            //Should we add digits to the password?
+
+            var digitConfirm = confirm("Do You want to include digits")
+        console.log(digitConfirm)
+        if (digitConfirm ==true){
+            console.log(digitConfirm)
+        }else{
+            password.pw_digitChar = false;
+        }
+
+        // Should we add digits to the available characters string?
+        console.log(password.pw_digitChar)
+        if (password.pw_digitChar){
+            potentialChar += digitChar
+            }
+        console.log(potentialChar)
+
+                //Should we add special characters to the password?
+
+                var specialCharConfirm = confirm("Do You want to include special characters")
+                console.log(specialCharConfirm)
+                if (specialCharConfirm ==true){
+                    console.log(specialCharConfirm)
+                }else{
+                    password.pw_specialChar = false;
+                }
+
+        // Should we add special characters to the available characters string?
+        console.log(password.pw_specialChar)
+        if (password.pw_specialChar){
+            potentialChar += specialChar
+            }
+        console.log(potentialChar)
+        
+        // Lets get the length of the password from the user
+        while(password.pw_length == 'x'){
+        var pw_lengthInput = prompt( "How long should the password be?")
+        console.log(pw_lengthInput)
+        if(pw_lengthInput >=8 && pw_lengthInput<= 128 ){
+            console.log(password + password.pw_length)
+            console.log("input" + pw_lengthInput)
+            password.pw_length=pw_lengthInput;
+            console.log("password" + password.pw_length)
+        }else{
+            console.log("too short")
+        }
+        console.log("password" + password.pw_length)
+        console.log("input" + pw_lengthInput)
+    }
+
+}
+generatePassword()
+
+        
+
+    </script>
+</body>
+</html>

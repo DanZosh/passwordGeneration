@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>jstest</title>
 </head>
 <body>
     
@@ -24,25 +24,22 @@
     }
 
 
-    console.log(potentialChar)
 
+
+function getPassword(){
 
     alert("Lets set up your password")
-    var pw_length= "";
-    // var pw_length = prompt("How many characters should the password be? Select a number between 8 and 128")
-    console.log(pw_length, pw_lengthInput)
     // THIS IS THE VALIDATION SECTION THAT IS BROKEN
-    while(pw_length == ""){
+    while(password.pw_length == ""){
         var pw_lengthInput = prompt("How many characters should the password be? Select a number between 8 and 128.")
-        console.log(pw_lengthInput)
-        // pw_length = pw_lengthInput
+        console.log("input value " + pw_lengthInput)
         if(pw_lengthInput >= 8 && pw_lengthInput <= 128){
-            // pwlength = pw_lengthInput;
-            // console.log(pw_length);
+            password.pw_length = pw_lengthInput;
+            console.log("password value " + password.pw_length);
         }
         else{
-            console.log(pw_length)
-            console.log(pw_lengthInput)
+            console.log("password value " + password.pw_length)
+            console.log("input value " + pw_lengthInput)
             alert(`I SAID SELECT A NUMBER BETWEEN 8 AND 128, AND YOU SAID "${pw_lengthInput}"! Please try again.`);
         };
         continue;
@@ -124,7 +121,36 @@
     // }else{
     //     continue;
     // }
+}
+// Now lets get some random numbers
+    function generateRandomNumber(){
+        //we need two values, 1) the length of our possible values string, potentialCharLength, to which we will apply a random index, someRandoIndex, to get a random value; 2) We will do that a forLoopArray number of times, which is the length of our required password. 
+        // This will give us the for loop array, or how many times we want to loop.
+        var forLoopArray = parseFloat(password.pw_length);
+        console.log("length of password: " + forLoopArray)
+        // This will give us a random number, someRandoIndex, from which to pull from our potentialChar string
+        potentialCharLength = potentialChar.length
+        console.log("how many characters we can choose from: " + potentialCharLength)
+        var someRandoIndex = Math.floor((Math.random()*potentialCharLength));
+        console.log("this is our random index number, (it should change each time we refresh this page): " + someRandoIndex)
+        // before we run our for loop, we need to give our password an itial value, otherwise it will show up as "undefined"
+        password.pw_Value = potentialChar[someRandoIndex];
+        // Now lets do a for loop, forLoopArray number of times minus 1 because we gave password.pw_Value an initial character value
+        for (let index = 0; index < (forLoopArray-1); index++) {
+            var someRandoIndex = Math.floor((Math.random()*(potentialCharLength)));
+            console.log("this is our initial password: " + password.pw_Value);
+            console.log(someRandoIndex);
+            password.pw_Value += potentialChar[someRandoIndex]; 
 
+        }
+        console.log(password.pw_Value)
+        console.log(password.pw_Value.length)
+
+}
+
+
+getPassword()
+generateRandomNumber()
 
     </script>
 </body>
