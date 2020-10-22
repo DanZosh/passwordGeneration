@@ -5,19 +5,18 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = getPassword();
   var passwordText = document.querySelector("#password");
 
   // DAN_NOTE: the querySelector is being applied to the text area in HMTL where the password is to be displayed.
   passwordText.value = password;
 // Dan_Note: This is applying the password password to the text of the password generated being displayed in the browser.
 
-
+}
 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-// Dan_Note: the line above is saying: to the element "generateBTN", add an event. The event is click and when that click event happens, start the writePassword function. generateBtn is at the top of this page.
 
 
 
@@ -139,9 +138,9 @@ console.log(potentialChar)
 // }else{
 //     continue;
 // }
-}
+
 // Now lets get some random numbers
-function generateRandomNumber(){
+// function generateRandomNumber(){
     //we need two values, 1) the length of our possible values string, potentialCharLength, to which we will apply a random index, someRandoIndex, to get a random value; 2) We will do that a forLoopArray number of times, which is the length of our required password. 
     // This will give us the for loop array, or how many times we want to loop.
     var forLoopArray = parseFloat(password.pw_length);
@@ -163,10 +162,9 @@ function generateRandomNumber(){
     }
     console.log(password.pw_Value)
     console.log(password.pw_Value.length)
+    return password.pw_Value;
 
 }
-// I added line 169 to wrap the code i wrote in jstest.html in a function i think will be triggered by the "Generate Password" button on line 7 above
-writePassword(){
-  getPassword()
-  generateRandomNumber()
-}
+
+
+// getPassword()
