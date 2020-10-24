@@ -5,8 +5,9 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+
   var password = getPassword();
-  var passwordText = document.querySelector("#password");
+//   var passwordText = document.querySelector("#password");
 
   // DAN_NOTE: the querySelector is being applied to the text area in HMTL where the password is to be displayed.
   passwordText.value = password;
@@ -14,10 +15,9 @@ function writePassword() {
 
 }
 
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
+var passwordText = document.querySelector("#password");
 
 
 
@@ -29,7 +29,13 @@ var potentialChar = ""
 var upperCaseChar = 'ABCDEFGHIJKLMKNOPQRSTUVWXYZ';
 var lowerCaseChar = 'abcdefghijklmnopqrstuvwxyz';
 var digitChar = '0123456789'
-var specialChar = '!@#$%&?~'
+var specialChar = ' !"#$%&\')(*+,-./;<=>@?[]^`|}{~ '
+
+
+function getPassword(){
+    console.log(passwordText)
+    passwordText.innerHTML="";
+
 var password = {
     pw_length: "",
     // Lets start out assuming we can apply all Characters
@@ -41,19 +47,23 @@ var password = {
 }
 
 
-
-
-function getPassword(){
-
 alert("Lets set up your password")
 // THIS IS THE VALIDATION SECTION THAT IS BROKEN
 while(password.pw_length == ""){
     var pw_lengthInput = prompt("How many characters should the password be? Select a number between 8 and 128.")
     console.log("input value " + pw_lengthInput)
-    if(pw_lengthInput >= 8 && pw_lengthInput <= 128){
+    if(pw_lengthInput == NaN){
+        alert(`i said select a number, and you said ${pw_lengthInput}! Try again, and pick a number this time`);
+    }
+    else if(pw_lengthInput >= 8 && pw_lengthInput <= 128){
         password.pw_length = pw_lengthInput;
         console.log("password value " + password.pw_length);
     }
+
+    // else if(pw_lengthInput === NaN{
+    //     alert(`i said select a number, and you said ${pw_lengthInput}! Try again, and pick a number this time`);
+    //     }
+
     else{
         console.log("password value " + password.pw_length)
         console.log("input value " + pw_lengthInput)
